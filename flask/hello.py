@@ -19,12 +19,13 @@ def highlow2():
 def handle_highlow():
   num = highlow.generator()
   guess = int(request.args.get('guess'))
+  s = ' Guess: {0} Actual: {1}'.format(guess, num)
   if guess > num:
-    return "Guess was too high"
+    return "Guess was too high" + s
   elif guess < num:
-    return "Guess was too low"
+    return "Guess was too low" + s
   else:
-    return "Guess was just right"
+    return "Guess was just right" + s
 
 if __name__ == '__main__':
     app.run()
