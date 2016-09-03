@@ -17,7 +17,10 @@ def highlow2():
 
 @app.route('/handle_highlow')
 def handle_highlow():
-	return "%d" % highlow.apple(int(request.args.get('guess')))
+  num = highlow.generator()
+
+
+  return "%d" % num
 
 if __name__ == '__main__':
     app.run()
