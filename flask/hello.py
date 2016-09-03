@@ -18,9 +18,13 @@ def highlow2():
 @app.route('/handle_highlow')
 def handle_highlow():
   num = highlow.generator()
-
-
-  return "%d" % num
+  guess = int(request.args.get('guess'))
+  if guess > num:
+    return "Guess was too high"
+  elif guess < num:
+    return "Guess was too low"
+  else:
+    return "Guess was just right"
 
 if __name__ == '__main__':
     app.run()
